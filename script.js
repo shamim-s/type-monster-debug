@@ -47,7 +47,7 @@ const typeController = (e) => {
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   //--------------Fixed writing mistake not counting-------------------------
-    errorCount = errorCount + 1;
+    errorCount++;
   }
 
   // check if given question text is equal to user typed text
@@ -109,6 +109,7 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
+    //-----@ Changed single quotation to template strings-------------------------
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
@@ -136,6 +137,6 @@ setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
 
-
+// ---------used parseInit() for geting time without decimal point-----------------------
   document.getElementById("show-time").innerHTML = `${ startTime ? parseInt(timeSpent) : 0} seconds`;
 }, 1000);
